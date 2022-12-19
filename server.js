@@ -118,7 +118,7 @@ showDepartments = () => {
 
     connection.promise().query(sql, (err, rows) => {
         if (err) throw err;
-        console.table(rows):
+        console.table(rows);
         promptUser();
     });
 };
@@ -161,4 +161,71 @@ console.table(rows);
 promptUser();
 });
 };
+
+// FUNCTION TO ADD DEPARTMENT //
+
+addDepartment = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'addDept',
+            masseage: 'What department do you want to add?',
+            validate: addDept => {
+                if (addDept) {
+                    return true;
+                } else {
+                    console.log('Please enter a department');
+                    return false;
+                }
+        }
+    }
+
+])
+
+.then(answer => {
+    const sql = `INSERT INTO department (name)
+                 VALUES (?)`;
+    connection.query(sql, answer.addDept, (err, result) => {
+        if (err) throw err;
+        console.log('Added ' + answer.addDept + ' to departments!');
+
+        showDepartments();
+    });
+});
+};
+
+// FUNCTION TO ADD A ROLE //
+
+addRole = () => {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'role',
+            message: "What role do you want to add?",
+            validate: addRole => {
+                if (addRole) {
+                    return true;
+                } else {
+                    console.log('Please enter a role');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input', 
+            name: 'salary',
+            message: "What is the salary of this role?",
+            validate: addSalary => {
+               if (isNAN(addSalary)) {
+                 return true;
+                } else {
+                   console.log('Please enter a salary');
+                   return false;
+                }
+            }
+        }
+    ])
+
+    
+}
 
