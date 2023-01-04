@@ -4,7 +4,7 @@
   "description": "A command line application to manage a companies employee database",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/brbates86/Employee-Tracker#readme",
   "dependencies": {
-    "package-lock.json": "^1.0.0",
     "console.table": "^0.10.0",
-    "dotenv": "^8.2.0",
-    "inquirer": "^7.1.0",
-    "mysql2": "^2.1.0"
-
+    "dotenv": "^8.6.0",
+    "express.js": "^1.0.0",
+    "inquire": "^0.4.8",
+    "inquirer": "^7.3.3",
+    "mysql2": "^2.3.3",
+    "package-lock.json": "^1.0.0"
   }
 }
