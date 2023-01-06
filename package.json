@@ -20,13 +20,12 @@
   "homepage": "https://github.com/brbates86/Employee-Tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
-    "ctable": "^0.0.3",
+    
     "dotenv": "^8.6.0",
     "express.js": "^1.0.0",
-    "inquire": "^0.4.8",
     "inquirer": "^7.3.3",
-    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
+    "node": "^19.3.0",
     "package-lock.json": "^1.0.0"
   }
 }

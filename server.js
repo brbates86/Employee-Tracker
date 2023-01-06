@@ -1,9 +1,9 @@
 // import mysql2, inquirer and console.table//
-const mysql = require('mysql2');
+const mysql = require('mysql2')
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
-require('dotenv').config();
+require('dotenv').config()
 
 // connection to the db //
 const connection = mysql.createConnection({
