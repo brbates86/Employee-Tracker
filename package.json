@@ -24,6 +24,7 @@
     "express.js": "^1.0.0",
     "inquire": "^0.4.8",
     "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "package-lock.json": "^1.0.0"
   }
