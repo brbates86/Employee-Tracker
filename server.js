@@ -5,16 +5,18 @@ const cTable = require('console.table');
 
 require('dotenv').config()
 
+
+
 // connection to the db //
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: process.env.MYSQL_PASSWORD,
     database: 'employee_db'
 });
 
 connection.connect(err => {
-    if (err) throw err;
+    if (err) throw new err;
     console.log('connected as id' + connection.threadId);
     afterConnection();
 });
@@ -114,11 +116,11 @@ const promptUser = () => {
 };
 
 showDepartments = () => {
-    console.log('Showing all departments...\n');
+    console.log('Showing all departments...');
     const sql = `SELECT department.id AS id, department.name AS department FROM department`;
 
     connection.promise().query(sql, (err, rows) => {
-        if (err) throw err;
+        if (err) throw new err;
         console.table(rows);
         promptUser();
     });
@@ -134,7 +136,7 @@ showRoles = () => {
                  INNER JOIN department ON role.depatment_id = department.id`;
 
     connection.promise().query(sql, (err, rows) => {
-        if (err) throw err;
+        if (err) throw new err;
         console.table(rows);
         promptUser();
     })
@@ -157,7 +159,7 @@ FROM employee
     LEFT JOIN employee manager ON employee.manager_id = manager.id`;
 
 connection.promise().query(sql, (err, rows) => {
-if (err) throw err; 
+if (err) throw new err; 
 console.table(rows);
 promptUser();
 });
@@ -224,7 +226,7 @@ addRole = () => {
                    return false;
                 }
             }
-        }
+        },
     ])
 
     .then(answer => {
@@ -269,7 +271,7 @@ addRole = () => {
 addEmployee = () => {
     inquirer.prompt([
         {
-            tyoe: 'input',
+            type: 'input',
             name: 'firstName',
             message: "What is the employees first name?",
             validate: addFirst => {

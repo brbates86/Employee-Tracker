@@ -5,6 +5,8 @@ VALUES
 ('Sales & Marketing'),
 ('Operations');
 
+SELECT * FROM DEPARTMENT;
+
 INSERT INTO role (title, salary, department_id)
 VALUES
 ('Full Stack Developer', 80000, 1),
@@ -16,6 +18,7 @@ VALUES
 ('Project Manager', 100000, 4),
 ('Operations Manager', 90000, 4);
 
+SELECT * FROM ROLE;
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
@@ -27,3 +30,5 @@ VALUES
 ('Schuyler', 'Bates', 5, 5),
 ('Jen', 'Schrute', 7, null),
 ('Alice', 'Beasley', 8, 7);
+
+SELECT * FROM employee;
