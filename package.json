@@ -20,12 +20,16 @@
   "homepage": "https://github.com/brbates86/Employee-Tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "db-seed": "^1.2.0",
     "dotenv": "^8.6.0",
     "express.js": "^1.0.0",
     "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "node": "^19.3.0",
+    "nodemon": "^2.0.20",
     "package-lock.json": "^1.0.0",
-    "promise": "^8.3.0"
+    "promise": "^8.3.0",
+    "seeds": "^2.3.1"
   }
 }
