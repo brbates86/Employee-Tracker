@@ -253,7 +253,7 @@ addRole = () => {
               const sql = `INSERT INTO role (title, salary, department_id)
                           VALUES (?, ?, ?,)`;
   
-              connection.query(sql, params, (err, res) => {
+              connection.query(sql, params, (err, result) => {
                 if (err) throw err;
                 console.log('Added' + answer.role + " to roles!"); 
   
