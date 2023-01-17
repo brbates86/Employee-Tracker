@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 
-require('dotenv').config();
+require('dotenv').config()
 
 // connection to the db //
 const connection = mysql.createConnection({
@@ -117,9 +117,9 @@ showDepartments = () => {
     console.log('Showing all departments...\n');
     const sql = `SELECT department.id AS id, department.name AS department FROM department`;
 
-    connection.query(sql, (err, rows) => {
+    connection.query(sql, (err, res) => {
       if (err) throw err;
-      console.table(rows);
+      console.table(res);
       promptUser();
       });
 };
@@ -133,9 +133,9 @@ showRoles = () => {
                  FROM role
                  INNER JOIN department ON role.department_id = department.id`;
 
-                 connection.query(sql, (err, rows) => {
+                 connection.query(sql, (err, res) => {
                   if (err) throw err;
-                  console.table(rows);
+                  console.table(res);
                   promptUser();
               })
           };
@@ -155,9 +155,9 @@ showEmployees = () => {
                         LEFT JOIN department ON role.department_id = department.id
                         LEFT JOIN employee manager ON employee.manager_id = manager.id`;
 
-connection.query(sql, (err, rows) => {
+connection.query(sql, (err, res) => {
 if (err) throw err; 
-console.table(rows);
+console.table(res);
 promptUser();
 });
 };
@@ -251,7 +251,7 @@ addRole = () => {
               params.push(dept);
   
               const sql = `INSERT INTO role (title, salary, department_id)
-                          VALUES (?, ?, ?,)`;
+                          VALUES (?, ?, ?)`;
   
               connection.query(sql, params, (err, result) => {
                 if (err) throw err;
@@ -663,7 +663,7 @@ deleteRole = () => {
     const roleSql = `SELECT * FROM role`; 
   
     connection.query(roleSql, (err, data) => {
-      if (err) throw err; 
+      if(err) throw err; 
   
       const role = data.map(({ title, id }) => ({ name: title, value: id }));
   
